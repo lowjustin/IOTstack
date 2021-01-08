@@ -1,0 +1,18 @@
+omada-controller:
+  container_name: omada-controller
+  image: mbentley/omada-controller:latest-armv7l
+  restart: unless-stopped
+  ports:
+    - "8088:8088"
+    - "8043:8043"
+    - "27001:27001/udp"
+    - "27002:27002"
+    - "27017:27017"
+    - "29810:29810/udp"
+    - "29811:29811"
+    - "29812:29812"
+    - "29813:29813"
+  volumes:
+    - ./volumes/omada-controller/data/:/opt/tplink/EAPController/data/
+    - ./volumes/omada-controller/work/:/opt/tplink/EAPController/work/
+    - ./volumes/omada-controller/logs/:/opt/tplink/EAPController/logs/
